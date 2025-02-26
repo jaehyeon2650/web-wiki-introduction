@@ -17,3 +17,26 @@ console.log(
 );
 
 console.log("알맞은 스크립트를 작성하세요");
+const create_button = document.querySelector("#create_button")
+
+create_button.addEventListener("click",()=>{
+    const comment_box = document.querySelector(".comment-list")
+
+    const input = document.querySelector("#comment_form input").value;
+
+    let newComment = document.createElement("li");
+
+    newComment.innerHTML = `
+      <div class="comment-item">
+        <div class="comment-author">
+          <img src="./images/comment-author-icon.png" alt="사용자 프로필 이미지" />
+          <span>방문자</span>
+        </div>
+        <div class="comment-content">
+          ${input}
+        </div>
+      </div>
+    `
+    comment_box.appendChild(newComment);
+    document.querySelector('#comment_form input').value = '';
+})
